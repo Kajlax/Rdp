@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Dropdown, Icon, Menu } from "semantic-ui-react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class MenuAttached extends Component {
   state = {};
@@ -11,7 +11,6 @@ export default class MenuAttached extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Router>
         <Menu attached="top" color="teal" inverted>
           <Dropdown item icon="bars" simple>
             <Dropdown.Menu>
@@ -43,7 +42,7 @@ export default class MenuAttached extends Component {
             active={activeItem === "table"}
             onClick={this.handleItemClick}
           >
-            Table
+            <Link to="/">Table</Link>
           </Menu.Item>
 
           <Menu.Menu position="right">
@@ -56,7 +55,6 @@ export default class MenuAttached extends Component {
             </div>
           </Menu.Menu>
         </Menu>
-      </Router>
     );
   }
 }
