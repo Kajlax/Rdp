@@ -1,0 +1,33 @@
+import React, { PureComponent } from "react";
+import { Segment } from "semantic-ui-react";
+
+const segmentStyle = {
+  position: "fixed",
+  left: 0,
+  bottom: 0,
+  height: 80,
+  width: "100%",
+  borderRadius: 0
+};
+
+class Footer extends PureComponent {
+  render() {
+    return (
+      <Segment inverted style={segmentStyle}>
+        <div className="ui center aligned container">
+          <h5 className="ui inverted header">
+            &copy; Rapid Development Platform, 2018
+          </h5>
+          <a href="https://www.facebook.com/">
+            <i className="facebook square icon big" />
+          </a>
+          <a href="https://twitter.com/">
+            <i className="twitter square icon big" />
+          </a>
+        </div>
+      </Segment>
+    );
+  }
+}
+
+export default Footer;
