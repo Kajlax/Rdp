@@ -1,11 +1,13 @@
-import React from 'react';
-import Layout from './Layout';
+import React from "react";
+import Layout from "./Layout";
+import { Header } from "semantic-ui-react";
 
 export default class Frontpage extends React.PureComponent {
   render() {
-    return(
+    return (
       <Layout>
-        <h2>Rapid Development Platform</h2>
+        <Header as="h2">Rapid Development Platform</Header>
+        <Header as="h3">Home</Header>
       </Layout>
     );
   }

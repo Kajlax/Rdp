@@ -1,16 +1,14 @@
-import React from 'react';
-import Menu from './Menu';
-import Footer from './Footer';
+import React from "react";
+import Menu from "./Menu";
+import Footer from "./Footer";
 
 export default class Layout extends React.PureComponent {
   render() {
-    return(
+    return (
       <React.Fragment>
         <Menu />
         <br />
-        <div className="ui container">
-          {this.props.children}
-        </div>
+        <div className="ui container">{this.props.children}</div>
         <Footer />
       </React.Fragment>
     );
