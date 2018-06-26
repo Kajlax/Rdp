@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Layout from "./Layout";
 import _ from "lodash";
-import { Header, Table } from "semantic-ui-react";
+import { Header, Input, Table } from "semantic-ui-react";
 
 const tableData = [
   { id: "1", product: "Product 1", price: 10, category: "Industry" },
@@ -10,7 +10,7 @@ const tableData = [
   { id: "4", product: "Product 4", price: 10, category: "Industry" }
 ];
 
-export default class TableExampleSortable extends Component {
+export default class TableSortable extends Component {
   state = {
     column: null,
     data: tableData,
@@ -41,6 +41,7 @@ export default class TableExampleSortable extends Component {
     return (
       <Layout {...this.props}>
         <Header as="h2">Table from JSON data</Header>
+        <Input size="small" icon="search" placeholder="Search..." />
         <Table sortable selectable celled fixed compact="very" color="purple">
           <Table.Header>
             <Table.Row>
@@ -81,10 +82,12 @@ export default class TableExampleSortable extends Component {
             ))}
           </Table.Body>
           <Table.Footer>
-            <Table.HeaderCell>Row count?</Table.HeaderCell>
-            <Table.HeaderCell />
-            <Table.HeaderCell />
-            <Table.HeaderCell />
+            <Table.Row>
+              <Table.HeaderCell>Row count?</Table.HeaderCell>
+              <Table.HeaderCell />
+              <Table.HeaderCell />
+              <Table.HeaderCell />
+            </Table.Row>
           </Table.Footer>
         </Table>
       </Layout>
