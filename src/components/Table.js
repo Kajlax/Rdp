@@ -39,7 +39,7 @@ export default class TableExampleSortable extends Component {
   render() {
     const { column, data, direction } = this.state;
     return (
-      <Layout>
+      <Layout {...this.props}>
         <Header as="h2">Table from JSON data</Header>
         <Table sortable selectable celled fixed compact="very" color="purple">
           <Table.Header>

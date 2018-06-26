@@ -5,7 +5,7 @@ import { Grid, Header, List } from "semantic-ui-react";
 class Links extends PureComponent {
   render() {
     return (
-      <Layout>
+      <Layout {...this.props}>
         <div>
           <Header as="h2">Links</Header>
           <Grid columns={3} stackable>

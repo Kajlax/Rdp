@@ -1,17 +1,42 @@
 import React, { Component } from "react";
-import { Dropdown, Icon, Menu } from "semantic-ui-react";
+import { Dropdown, Icon, Menu as SemanticMenu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-export default class MenuAttached extends Component {
+const menuitems = [
+  {
+    Title: 'Home',
+    Path: '/',
+  },
+  {
+    Title: 'Links',
+    Path: '/Links',
+  },
+  {
+    Title: 'Table',
+    Path: '/Table',
+  },
+];
+
+export default class Menu extends Component {
   state = {};
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  renderMainItems = () => {
+    return menuitems.map(item => {
+      const { path } = this.props.match;
+
+      return(<SemanticMenu.Item
+          key={item.Title}
+          as={Link}
+          name={item.Title}
+          active={path === item.Path}
+          to={item.Path}
+        />);
+    });
+  }
 
   render() {
-    const { activeItem } = this.state;
-
     return (
-      <Menu attached="top" color="teal" inverted stackable>
+      <SemanticMenu attached="top" color="teal" inverted stackable>
         <Dropdown item icon="bars" simple>
           <Dropdown.Menu>
             <Dropdown.Item>
@@ -29,31 +54,11 @@ export default class MenuAttached extends Component {
             <Dropdown.Item>About</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Menu.Item
-          name="Frontpage"
-          active={activeItem === "Frontpage"}
-          onClick={this.handleItemClick}
-        >
-          <Link to="/">Home</Link>
-        </Menu.Item>
-
-        <Menu.Item
-          name="Links"
-          active={activeItem === "Links"}
-          onClick={this.handleItemClick}
-        >
-          <Link to="/Links">Links</Link>
-        </Menu.Item>
-
-        <Menu.Item
-          name="Table"
-          active={activeItem === "Table"}
-          onClick={this.handleItemClick}
-        >
-          <Link to="/Table">Table</Link>
-        </Menu.Item>
-
-        <Menu.Menu position="right">
+        {
+          this.renderMainItems()
+        }
+        
+        <SemanticMenu.Menu position="right">
           <div className="ui right aligned category search item">
             <div className="ui icon input">
               <input className="prompt" type="text" placeholder="Search..." />
@@ -61,8 +66,8 @@ export default class MenuAttached extends Component {
             </div>
             <div className="results" />
           </div>
-        </Menu.Menu>
-      </Menu>
+        </SemanticMenu.Menu>
+      </SemanticMenu>
     );
   }
 }
