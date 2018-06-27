@@ -1,8 +1,8 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import Layout from "./Layout";
 import { Grid, Header, List } from "semantic-ui-react";
 
-class Links extends PureComponent {
+export default class Footer extends React.PureComponent {
   render() {
     return (
       <Layout {...this.props}>
@@ -120,5 +120,3 @@ class Links extends PureComponent {
     );
   }
 }
-
-export default Links;

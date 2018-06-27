@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { Header, Segment } from "semantic-ui-react";
 
 const segmentStyle = {
@@ -10,7 +10,7 @@ const segmentStyle = {
   borderRadius: 0
 };
 
-class Footer extends PureComponent {
+export default class Footer extends React.PureComponent {
   render() {
     return (
       <Segment inverted style={segmentStyle}>
@@ -29,5 +29,3 @@ class Footer extends PureComponent {
     );
   }
 }
-
-export default Footer;

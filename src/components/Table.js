@@ -2,18 +2,14 @@ import React, { Component } from "react";
 import Layout from "./Layout";
 import _ from "lodash";
 import { Header, Input, Table } from "semantic-ui-react";
+import JSONdata from "../data/TableData.json";
 
-const tableData = [
-  { id: "1", product: "Product 1", price: 10, category: "Industry" },
-  { id: "2", product: "Product 2", price: 80, category: "Industry" },
-  { id: "3", product: "Product 3", price: 20, category: "Coal" },
-  { id: "4", product: "Product 4", price: 10, category: "Industry" }
-];
+let rowCount = Object.keys(JSONdata).length;
 
 export default class TableSortable extends Component {
   state = {
     column: null,
-    data: tableData,
+    data: JSONdata,
     direction: null
   };
 
@@ -38,6 +34,7 @@ export default class TableSortable extends Component {
 
   render() {
     const { column, data, direction } = this.state;
+    console.log(rowCount);
     return (
       <Layout {...this.props}>
         <Header as="h2">Table from JSON data</Header>
@@ -83,7 +80,7 @@ export default class TableSortable extends Component {
           </Table.Body>
           <Table.Footer>
             <Table.Row>
-              <Table.HeaderCell>Row count?</Table.HeaderCell>
+              <Table.HeaderCell>{rowCount} rows</Table.HeaderCell>
               <Table.HeaderCell />
               <Table.HeaderCell />
               <Table.HeaderCell />
