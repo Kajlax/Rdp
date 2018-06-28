@@ -34,11 +34,10 @@ export default class TableSortable extends Component {
 
   render() {
     const { column, data, direction } = this.state;
-    console.log(rowCount);
     return (
       <Layout {...this.props}>
-        <Header as="h2">Table from JSON data</Header>
-        <Input size="small" icon="search" placeholder="Search..." />
+        <Header as="h2">Table with JSON data</Header>
+        <Input size="small" icon="search" placeholder="Search items..." />
         <Table sortable selectable celled fixed compact="very" color="purple">
           <Table.Header>
             <Table.Row>
@@ -80,7 +79,9 @@ export default class TableSortable extends Component {
           </Table.Body>
           <Table.Footer>
             <Table.Row>
-              <Table.HeaderCell>{rowCount} rows</Table.HeaderCell>
+              <Table.HeaderCell>
+                Filtered rows? / {rowCount} rows
+              </Table.HeaderCell>
               <Table.HeaderCell />
               <Table.HeaderCell />
               <Table.HeaderCell />
