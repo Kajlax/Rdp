@@ -4,7 +4,7 @@ import _ from "lodash";
 import { Header, Input, Table } from "semantic-ui-react";
 import JSONdata from "../data/TableData.json";
 
-let rowCount = Object.keys(JSONdata).length;
+let totalRows = Object.keys(JSONdata).length;
 
 export default class TableSortable extends Component {
   state = {
@@ -37,7 +37,7 @@ export default class TableSortable extends Component {
     return (
       <Layout {...this.props}>
         <Header as="h2">Table with JSON data</Header>
-        <Input size="small" icon="search" placeholder="Search items..." />
+        <Input size="small" icon="search" placeholder="Search products..." />
         <Table sortable selectable celled fixed compact="very" color="purple">
           <Table.Header>
             <Table.Row>
@@ -57,7 +57,7 @@ export default class TableSortable extends Component {
                 sorted={column === "price" ? direction : null}
                 onClick={this.handleSort("price")}
               >
-                Price
+                Price (€)
               </Table.HeaderCell>
               <Table.HeaderCell
                 sorted={column === "category" ? direction : null}
@@ -80,7 +80,7 @@ export default class TableSortable extends Component {
           <Table.Footer>
             <Table.Row>
               <Table.HeaderCell>
-                Filtered rows? / {rowCount} rows
+                Filtered rows? / {totalRows} rows
               </Table.HeaderCell>
               <Table.HeaderCell />
               <Table.HeaderCell />

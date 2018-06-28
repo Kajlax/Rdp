@@ -8,35 +8,35 @@ const staffArray = [
       "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/user.png",
     header: "Sam Smith",
     meta: "Chief Executive officer",
-    extra: "<a href='mailto:'><Icon name='mail' />Contact</a>"
+    mail: "sam.smith@rdp.com"
   },
   {
     image:
       "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/user.png",
     header: "Jane Doe",
     meta: "Head of Marketing",
-    extra: "<a href='mailto:'><Icon name='mail' />Contact</a>"
+    mail: "jane.doe@rdp.com"
   },
   {
     image:
       "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/user.png",
     header: "Steve King",
     meta: "Head of Sales",
-    extra: "<a href='mailto:'><Icon name='mail' />Contact</a>"
+    mail: "steve.king@rdp.com"
   },
   {
     image:
       "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/user.png",
     header: "John Doe",
     meta: "Head of Production",
-    extra: "<a href='mailto:'><Icon name='mail' />Contact</a>"
+    mail: "john.doe@rdp.com"
   },
   {
     image:
       "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/user.png",
     header: "Eric Johnson",
     meta: "Head of IT",
-    extra: "<a href='mailto:'><Icon name='mail' />Contact</a>"
+    mail: "eric.johnson@rdp.com"
   }
 ];
 
@@ -49,7 +49,11 @@ export default class Staff extends React.PureComponent {
             image={item.image}
             header={item.header}
             meta={item.meta}
-            extra={item.extra}
+            extra={
+              <a href="mailto:">
+                <Icon name="mail" />Contact
+              </a>
+            }
           />
         </Grid.Column>
       );
