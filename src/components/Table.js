@@ -80,7 +80,7 @@ export default class TableSortable extends Component {
           <Table.Footer>
             <Table.Row>
               <Table.HeaderCell>
-                Filtered rows? / {totalRows} rows
+                Showing X of total {totalRows} products
               </Table.HeaderCell>
               <Table.HeaderCell />
               <Table.HeaderCell />

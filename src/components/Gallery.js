@@ -1,31 +1,14 @@
 import React from "react";
 import Layout from "./Layout";
 import { Grid, Image, Header } from "semantic-ui-react";
-
-const galleryArray = [
-  {
-    image: "https://picsum.photos/200/200/?random"
-  },
-  {
-    image: "https://picsum.photos/200/200/?random"
-  },
-  {
-    image: "https://picsum.photos/200/200/?random"
-  },
-  {
-    image: "https://picsum.photos/200/200/?random"
-  },
-  {
-    image: "https://picsum.photos/200/200/?random"
-  }
-];
+import JSONdata from "../data/GalleryData.json";
 
 export default class Gallery extends React.PureComponent {
   renderGalleryArray = () => {
-    return galleryArray.map(item => {
+    return JSONdata.map(item => {
       return (
-        <Grid.Column>
-          <Image src={item.image} />
+        <Grid.Column key={item.imageUrl}>
+          <Image rounded src={item.imageUrl} />
         </Grid.Column>
       );
     });

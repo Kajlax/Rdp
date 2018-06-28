@@ -8,8 +8,10 @@ export default class Frontpage extends React.PureComponent {
       <Layout {...this.props}>
         <Header as="h2">Rapid Development Platform</Header>
         <Header as="h4" block color="purple">
-          Rapid Development Platform uses a new component-based web design. The
-          platform can be modified and expanded with different components.
+          Rapid Development Platform is a new component-based modular web
+          platform. The platform can be modified and expanded with different
+          components. Data sources come from external JSON files that can be
+          updated separately.
         </Header>
       </Layout>
     );
