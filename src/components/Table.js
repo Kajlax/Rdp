@@ -4,7 +4,7 @@ import _ from "lodash";
 import { Header, Input, Table } from "semantic-ui-react";
 import JSONdata from "../data/TableData.json";
 
-let totalRows = Object.keys(JSONdata).length;
+const totalRows = JSONdata.length;
 
 export default class TableSortable extends Component {
   state = {

@@ -1,119 +1,97 @@
 import React from "react";
 import Layout from "./Layout";
 import { Grid, Header, List } from "semantic-ui-react";
+import JSONdata from "../data/LinksData.json";
 
 export default class Links extends React.PureComponent {
+  renderLinksArrayTools = () => {
+    return JSONdata.filter(item => item.linkCategory === "Tools").map(item => {
+      return (
+        <List.Item key={item.linkName}>
+          <List.Icon name="caret right" />
+          <List.Content>
+            <a href={item.linkUrl}>{item.linkName}</a>
+          </List.Content>
+        </List.Item>
+      );
+    });
+  };
+
+  renderLinksArrayProducts = () => {
+    return JSONdata.filter(item => item.linkCategory === "Products").map(
+      item => {
+        return (
+          <List.Item key={item.linkName}>
+            <List.Icon name="caret right" />
+            <List.Content>
+              <a href={item.linkUrl}>{item.linkName}</a>
+            </List.Content>
+          </List.Item>
+        );
+      }
+    );
+  };
+
+  renderLinksArraySupport = () => {
+    return JSONdata.filter(item => item.linkCategory === "Support").map(
+      item => {
+        return (
+          <List.Item key={item.linkName}>
+            <List.Icon name="caret right" />
+            <List.Content>
+              <a href={item.linkUrl}>{item.linkName}</a>
+            </List.Content>
+          </List.Item>
+        );
+      }
+    );
+  };
+
+  renderLinksArrayWebsites = () => {
+    return JSONdata.filter(item => item.linkCategory === "Websites").map(
+      item => {
+        return (
+          <List.Item key={item.linkName}>
+            <List.Icon name="caret right" />
+            <List.Content>
+              <a href={item.linkUrl}>{item.linkName}</a>
+            </List.Content>
+          </List.Item>
+        );
+      }
+    );
+  };
+
   render() {
     return (
       <Layout {...this.props}>
         <div>
           <Header as="h2">Links</Header>
           <Grid columns={3} stackable>
-            <Grid.Row>
-              <Grid.Column>
-                <Header as="h4" dividing>
-                  Tools
-                </Header>
-                <List>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 1</a>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 2</a>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 3</a>
-                    </List.Content>
-                  </List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column>
-                <Header as="h4" dividing>
-                  Products
-                </Header>
-                <List>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 4</a>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 5</a>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 6</a>
-                    </List.Content>
-                  </List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column>
-                <Header as="h4" dividing>
-                  Support
-                </Header>
-                <List>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 7</a>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 8</a>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 9</a>
-                    </List.Content>
-                  </List.Item>
-                </List>
-              </Grid.Column>
-            </Grid.Row>
-
-            <Grid.Row>
-              <Grid.Column>
-                <Header as="h4" dividing>
-                  Websites
-                </Header>
-                <List>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 10</a>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 11</a>
-                    </List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="caret right" />
-                    <List.Content>
-                      <a href="https://www.google.com">Link 12</a>
-                    </List.Content>
-                  </List.Item>
-                </List>
-              </Grid.Column>
-            </Grid.Row>
+            <Grid.Column>
+              <Header as="h4" dividing>
+                Tools
+              </Header>
+              <List>{this.renderLinksArrayTools()}</List>
+            </Grid.Column>
+            <Grid.Column>
+              <Header as="h4" dividing>
+                Products
+              </Header>
+              <List>{this.renderLinksArrayProducts()}</List>
+            </Grid.Column>
+            <Grid.Column>
+              <Header as="h4" dividing>
+                Support
+              </Header>
+              <List>{this.renderLinksArraySupport()}</List>
+            </Grid.Column>
+            <Grid.Column>
+              <Header as="h4" dividing>
+                Webistes
+              </Header>
+              <List>{this.renderLinksArrayWebsites()}</List>
+            </Grid.Column>
           </Grid>
         </div>
       </Layout>
