@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Dropdown, Icon, Menu as SemanticMenu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { connectContext } from 'react-connect-context';
+import { Context } from '../context';
 
 const menuitems = [
   {
@@ -25,8 +27,13 @@ const menuitems = [
   }
 ];
 
-export default class Menu extends Component {
+class Menu extends PureComponent {
   state = {};
+
+  handleTextChange = (e) => {
+    const { value } = e.target;
+    this.props.updateSearchQuery(value);
+  }
 
   renderMainItems = () => {
     return menuitems.map(item => {
@@ -44,6 +51,8 @@ export default class Menu extends Component {
     });
   };
   render() {
+    const { searchQuery } = this.props;
+
     return (
       <SemanticMenu attached="top" color="teal" inverted stackable>
         <Dropdown item icon="bars" simple>
@@ -66,7 +75,13 @@ export default class Menu extends Component {
         <SemanticMenu.Menu position="right">
           <div className="ui right aligned category search item">
             <div className="ui icon input">
-              <input className="prompt" type="text" placeholder="Search..." />
+              <input
+                value={searchQuery}
+                onChange={this.handleTextChange}
+                className="prompt"
+                type="text"
+                placeholder="Search..."
+              />
               <i className="search link icon" />
             </div>
             <div className="results" />
@@ -76,3 +91,5 @@ export default class Menu extends Component {
     );
   }
 }
+
+export default connectContext(Context.Consumer)(Menu);
