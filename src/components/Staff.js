@@ -13,7 +13,7 @@ export default class Staff extends React.PureComponent {
             header={item.header}
             meta={item.meta}
             extra={
-              <a href="mailto:">
+              <a href={`mailto:${item.mail}`}>
                 <Icon name="mail" />Contact
               </a>
             }

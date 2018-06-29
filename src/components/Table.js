@@ -6,7 +6,7 @@ import JSONdata from "../data/TableData.json";
 import { connectContext } from 'react-connect-context';
 import { Context } from '../context';
 
-let totalRows = Object.keys(JSONdata).length;
+const totalRows = JSONdata.length;
 let filteredRows = totalRows;
 
 class TableSortable extends Component {

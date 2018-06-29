@@ -7,7 +7,7 @@ export default class Gallery extends React.PureComponent {
   renderGalleryArray = () => {
     return JSONdata.map(item => {
       return (
-        <Grid.Column key={item.imageUrl}>
+        <Grid.Column key={item.id}>
           <Image rounded src={item.imageUrl} />
         </Grid.Column>
       );
