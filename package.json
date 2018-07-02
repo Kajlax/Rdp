@@ -4,10 +4,13 @@
   "private": true,
   "homepage": "http://kajlax.mbnet.fi/Projects/rdp/",
   "dependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "react-test-renderer": "^16.4.1",
     "semantic-ui-css": "^2.3.2",
     "semantic-ui-react": "^0.81.1"
   },
@@ -19,5 +22,12 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "collectCoverageFrom" : [
+      "src/components/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/"
+    ]
   }
 }
