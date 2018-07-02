@@ -3,10 +3,13 @@ import Layout from "./Layout";
 import _ from "lodash";
 import { Header, Input, Table } from "semantic-ui-react";
 import JSONdata from "../data/TableData.json";
+import { connectContext } from 'react-connect-context';
+import { Context } from '../context';
 
 const totalRows = JSONdata.length;
+let filteredRows = totalRows;
 
-export default class TableSortable extends Component {
+class TableSortable extends Component {
   state = {
     column: null,
     data: JSONdata,
@@ -32,12 +35,66 @@ export default class TableSortable extends Component {
     });
   };
 
+  handleTextChange = (e) => {
+    const { value } = e.target;
+    this.props.updateSearchQuery(value);
+  }
+  
+  renderRows = () => {
+    let { data } = this.state;
+    let { searchQuery } = this.props;
+
+    searchQuery = searchQuery.toUpperCase();
+
+    if(searchQuery !== '') {
+      data = data.filter(row => {
+        const upperCaseProduct = row.product.toUpperCase();
+        const upperCaseCategory = row.category.toUpperCase();
+
+        if(upperCaseProduct.indexOf(searchQuery)>-1 || upperCaseCategory.indexOf(searchQuery)>-1){
+          return row;
+        }
+        return null;
+      });
+
+      filteredRows = data.length;
+    } else {
+      filteredRows = totalRows;
+    }
+
+    return(
+      _.map(data, ({ product, price, id, category }) => (
+        <Table.Row key={id}>
+          <Table.Cell>{id}</Table.Cell>
+          <Table.Cell>{product}</Table.Cell>
+          <Table.Cell>{price}</Table.Cell>
+          <Table.Cell>{category}</Table.Cell>
+        </Table.Row>
+      ))
+    )
+  }
+
   render() {
-    const { column, data, direction } = this.state;
+    const { column, direction } = this.state;
+    const { searchQuery } = this.props;
+
     return (
       <Layout {...this.props}>
-        <Header as="h2">Table with JSON data</Header>
-        <Input size="small" icon="search" placeholder="Search products..." />
+        <Header as="h2">
+          Table with JSON data
+          {
+            searchQuery !== '' ? 
+            ` - Filter data by: ${searchQuery}:`:
+            null
+          }
+        </Header>
+        <Input
+          value={searchQuery}
+          onChange={this.handleTextChange}
+          size="small"
+          icon="search"
+          placeholder="Search products..."
+        />
         <Table sortable selectable celled fixed compact="very" color="purple">
           <Table.Header>
             <Table.Row>
@@ -68,19 +125,14 @@ export default class TableSortable extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {_.map(data, ({ product, price, id, category }) => (
-              <Table.Row key={id}>
-                <Table.Cell>{id}</Table.Cell>
-                <Table.Cell>{product}</Table.Cell>
-                <Table.Cell>{price}</Table.Cell>
-                <Table.Cell>{category}</Table.Cell>
-              </Table.Row>
-            ))}
+            {
+              this.renderRows()
+            }
           </Table.Body>
           <Table.Footer>
             <Table.Row>
               <Table.HeaderCell>
-                Showing X of total {totalRows} products
+                Showing {filteredRows} of total {totalRows} products
               </Table.HeaderCell>
               <Table.HeaderCell />
               <Table.HeaderCell />
@@ -92,3 +144,5 @@ export default class TableSortable extends Component {
     );
   }
 }
+
+export default connectContext(Context.Consumer)(TableSortable);

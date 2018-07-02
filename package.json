@@ -5,6 +5,7 @@
   "homepage": "http://kajlax.mbnet.fi/Projects/rdp/",
   "dependencies": {
     "react": "^16.4.1",
+    "react-connect-context": "^1.0.2",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
