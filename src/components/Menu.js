@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
-import { Dropdown, Icon, Menu as SemanticMenu } from "semantic-ui-react";
+import { Dropdown, Menu as SemanticMenu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import { connectContext } from 'react-connect-context';
-import { Context } from '../context';
+import { connectContext } from "react-connect-context";
+import { Context } from "../context";
 
 const menuitems = [
   {
@@ -27,13 +27,24 @@ const menuitems = [
   }
 ];
 
+const dropdownItems = [
+  {
+    Title: "Dashboard",
+    Path: "/Dashboard"
+  },
+  {
+    Title: "About",
+    Path: "/About"
+  }
+];
+
 class Menu extends PureComponent {
   state = {};
 
-  handleTextChange = (e) => {
+  handleTextChange = e => {
     const { value } = e.target;
     this.props.updateSearchQuery(value);
-  }
+  };
 
   renderMainItems = () => {
     return menuitems.map(item => {
@@ -50,26 +61,31 @@ class Menu extends PureComponent {
       );
     });
   };
+
+  renderDropdownItems = () => {
+    return dropdownItems.map(item => {
+      const { path } = this.props.match;
+
+      return (
+        <Dropdown.Item
+          key={item.Title}
+          as={Link}
+          active={path === item.Path}
+          to={item.Path}
+        >
+          {item.Title}
+        </Dropdown.Item>
+      );
+    });
+  };
+
   render() {
     const { searchQuery } = this.props;
 
     return (
       <SemanticMenu attached="top" color="teal" inverted stackable>
         <Dropdown item icon="bars" simple>
-          <Dropdown.Menu>
-            <Dropdown.Item>
-              <Icon name="dropdown" />
-              <span className="text">Item 1</span>
-              <Dropdown.Menu>
-                <Dropdown.Item>Item 1.1</Dropdown.Item>
-                <Dropdown.Item>Item 1.2</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown.Item>
-            <Dropdown.Item>Item 2</Dropdown.Item>
-            <Dropdown.Item>Item 3</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item>About</Dropdown.Item>
-          </Dropdown.Menu>
+          <Dropdown.Menu>{this.renderDropdownItems()}</Dropdown.Menu>
         </Dropdown>
         {this.renderMainItems()}
         <SemanticMenu.Menu position="right">

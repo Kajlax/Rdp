@@ -18,6 +18,9 @@ export default class Gallery extends React.PureComponent {
     return (
       <Layout {...this.props}>
         <Header as="h2">Gallery</Header>
+        <Header as="h4" dividing>
+          Miscellaneous
+        </Header>
         <Grid columns={4} stackable>
           {this.renderGalleryArray()}
         </Grid>

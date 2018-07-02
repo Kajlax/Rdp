@@ -88,7 +88,7 @@ export default class Links extends React.PureComponent {
             </Grid.Column>
             <Grid.Column>
               <Header as="h4" dividing>
-                Webistes
+                Websites
               </Header>
               <List>{this.renderLinksArrayWebsites()}</List>
             </Grid.Column>
