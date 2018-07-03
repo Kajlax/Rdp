@@ -4,10 +4,10 @@ import _ from "lodash";
 import { Grid, Header, List } from "semantic-ui-react";
 import JSONdata from "../data/LinksData.json";
 
-const categories = _.uniqBy(JSONdata, 'linkCategory');
+const categories = _.uniqBy(JSONdata, "linkCategory");
 
 export default class Links extends React.PureComponent {
-  renderLinksArray = (section) => {
+  renderLinksArray = section => {
     return JSONdata.filter(item => item.linkCategory === section).map(item => {
       return (
         <List.Item key={item.linkName}>
@@ -19,6 +19,7 @@ export default class Links extends React.PureComponent {
       );
     });
   };
+
   renderColumns = () => {
     return categories.map(col => {
       return (
@@ -30,17 +31,15 @@ export default class Links extends React.PureComponent {
         </Grid.Column>
       );
     });
-  }
+  };
 
   render() {
     return (
       <Layout {...this.props}>
         <div>
           <Header as="h2">Links</Header>
-          <Grid columns={3} stackable>
-            {
-              this.renderColumns()
-            }
+          <Grid columns={4} stackable>
+            {this.renderColumns()}
           </Grid>
         </div>
       </Layout>

@@ -5,29 +5,40 @@ import JSONdata from "../data/GalleryData.json";
 
 export default class Gallery extends Component {
   state = {
-    selectedImage: null,
+    selectedImage: null
   };
 
   renderGalleryArray = () => {
     return JSONdata.map(item => {
       return (
         <Grid.Column key={item.id}>
-          <Image rounded src={item.imageUrl} onClick={() => this.handleOpen(item)} />
+          <Image
+            rounded
+            src={item.imageUrl}
+            onClick={() => this.handleOpen(item)}
+          />
         </Grid.Column>
       );
     });
   };
 
-  handleOpen = (image) => this.setState({ selectedImage: image });
+  handleOpen = image => this.setState({ selectedImage: image });
   handleClose = () => this.setState({ selectedImage: null });
 
   showImage = () => {
     const { selectedImage } = this.state;
     return (
-      <Dimmer active={selectedImage ? true : false} onClickOutside={this.handleClose} page>
-        <Image rounded src={selectedImage.imageUrl} />
+      <Dimmer
+        active={selectedImage ? true : false}
+        onClickOutside={this.handleClose}
+        page
+      >
+        <Image src={selectedImage.imageUrl} />
         <Header as="h2" inverted>
-          {selectedImage.id}, {selectedImage.imageCategory}
+          {selectedImage.imageName}
+          <Header.Subheader>
+            {selectedImage.id}, {selectedImage.imageCategory}
+          </Header.Subheader>
         </Header>
       </Dimmer>
     );
@@ -44,12 +55,7 @@ export default class Gallery extends Component {
         <Grid columns={4} stackable>
           {this.renderGalleryArray()}
         </Grid>
-        { 
-          selectedImage ? 
-          this.showImage()
-          :
-          null
-        }
+        {selectedImage ? this.showImage() : null}
       </Layout>
     );
   }
