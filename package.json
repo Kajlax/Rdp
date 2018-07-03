@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://kajlax.mbnet.fi/Projects/rdp/",
   "dependencies": {
+    "chart.js": "^2.7.2",
     "react": "^16.4.1",
     "react-chartjs-2": "^2.7.2",
     "react-connect-context": "^1.0.2",
