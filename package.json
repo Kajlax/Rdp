@@ -6,7 +6,10 @@
   "dependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "chart.js": "^2.7.2",
     "react": "^16.4.1",
+    "react-chartjs-2": "^2.7.2",
+    "react-connect-context": "^1.0.2",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",

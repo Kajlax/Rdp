@@ -1,22 +1,38 @@
 [
   {
     "id": "001",
+    "imageCategory": "Products",
+    "imageName": "Name of image 1",
     "imageUrl": "https://picsum.photos/400/400/?random"
   },
   {
     "id": "002",
+    "imageCategory": "Products",
+    "imageName": "Name of image 2",
     "imageUrl": "https://picsum.photos/400/400/?random"
   },
   {
     "id": "003",
+    "imageCategory": "Products",
+    "imageName": "Name of image 3",
     "imageUrl": "https://picsum.photos/400/400/?random"
   },
   {
     "id": "004",
+    "imageCategory": "Products",
+    "imageName": "Name of image 3",
     "imageUrl": "https://picsum.photos/400/400/?random"
   },
   {
     "id": "005",
+    "imageCategory": "Products",
+    "imageName": "Name of image 5",
+    "imageUrl": "https://picsum.photos/400/400/?random"
+  },
+  {
+    "id": "006",
+    "imageCategory": "Products",
+    "imageName": "Name of image 6",
     "imageUrl": "https://picsum.photos/400/400/?random"
   }
 ]

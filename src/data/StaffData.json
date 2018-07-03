@@ -33,5 +33,26 @@
     "header": "Eric Johnson",
     "meta": "Head of IT",
     "mail": "eric.johnson@rdp.com"
+  },
+  {
+    "image":
+      "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/user.png",
+    "header": "Maria Silver",
+    "meta": "Data Analyst",
+    "mail": "maria.silver@rdp.com"
+  },
+  {
+    "image":
+      "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/user.png",
+    "header": "Rich Waters",
+    "meta": "Social Media Manager",
+    "mail": "rich.waters@rdp.com"
+  },
+  {
+    "image":
+      "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/user.png",
+    "header": "Walter Dominiguez",
+    "meta": "Full Stack Developer",
+    "mail": "walter.dominiguez@rdp.com"
   }
 ]
