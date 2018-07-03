@@ -4,34 +4,37 @@ import { Dimmer, Grid, Image, Header } from "semantic-ui-react";
 import JSONdata from "../data/GalleryData.json";
 
 export default class Gallery extends Component {
-  state = {};
+  state = {
+    selectedImage: null,
+  };
 
   renderGalleryArray = () => {
     return JSONdata.map(item => {
       return (
         <Grid.Column key={item.id}>
-          <Image rounded src={item.imageUrl} onClick={this.handleOpen} />
+          <Image rounded src={item.imageUrl} onClick={() => this.handleOpen(item)} />
         </Grid.Column>
       );
     });
   };
 
-  handleOpen = () => this.setState({ active: true });
-  handleClose = () => this.setState({ active: false });
+  handleOpen = (image) => this.setState({ selectedImage: image });
+  handleClose = () => this.setState({ selectedImage: null });
 
   showImage = () => {
-    const { active } = this.state;
+    const { selectedImage } = this.state;
     return (
-      <Dimmer active={active} onClickOutside={this.handleClose} page>
-        <Image rounded src={this.imageUrl} />
+      <Dimmer active={selectedImage ? true : false} onClickOutside={this.handleClose} page>
+        <Image rounded src={selectedImage.imageUrl} />
         <Header as="h2" inverted>
-          {this.id}, {this.imageCategory}
+          {selectedImage.id}, {selectedImage.imageCategory}
         </Header>
       </Dimmer>
     );
   };
 
   render() {
+    const { selectedImage } = this.state;
     return (
       <Layout {...this.props}>
         <Header as="h2">Gallery</Header>
@@ -41,6 +44,12 @@ export default class Gallery extends Component {
         <Grid columns={4} stackable>
           {this.renderGalleryArray()}
         </Grid>
+        { 
+          selectedImage ? 
+          this.showImage()
+          :
+          null
+        }
       </Layout>
     );
   }
