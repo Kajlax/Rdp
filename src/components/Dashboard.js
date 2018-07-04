@@ -33,7 +33,7 @@ export default class Dashboard extends React.PureComponent {
           <Grid.Row>
             <Grid.Column width={16}>
               <Header as="h4" dividing>
-                Monthly users
+                Monthly usage
               </Header>
               <DashboardBarChart />
             </Grid.Column>
