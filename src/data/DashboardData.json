@@ -55,17 +55,14 @@
   "statistics": [
     {
       "id": "Users",
-      "dashboardCategory": "Statistics",
       "value": "50"
     },
     {
       "id": "Availability",
-      "dashboardCategory": "Statistics",
       "value": "99,2"
     },
     {
       "id": "Visits",
-      "dashboardCategory": "Statistics",
       "value": "300"
     }
   ]
