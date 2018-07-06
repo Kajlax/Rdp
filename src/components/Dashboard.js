@@ -4,14 +4,20 @@ import { Grid, Header, Statistic } from "semantic-ui-react";
 import JSONdata from "../data/DashboardData.json";
 import { Bar } from "react-chartjs-2";
 
-const DashboardBarChart = () => {
-  const data = {
-    labels: JSONdata.barChart[0].labels,
-    datasets: JSONdata.barChart[1].datasets,
-    options: JSONdata.barChart[2].options
-  };
-  return <Bar data={data} />;
+const data = {
+  labels: JSONdata.barChart[0].labels,
+  datasets: JSONdata.barChart[1].datasets,
+  options: JSONdata.barChart[2].options
 };
+
+class DashboardBarChart extends React.PureComponent {
+  render() {
+    return <Bar
+    data={data} 
+    options={data.options}
+    />;
+  }
+}
 
 export default class Dashboard extends React.PureComponent {
   renderDashboardStatistics = () => {
