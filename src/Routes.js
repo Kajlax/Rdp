@@ -7,6 +7,7 @@ import Staff from "./components/Staff";
 import Table from "./components/Table";
 import About from "./components/About";
 import Dashboard from "./components/Dashboard";
+import Settings from "./components/Settings";
 
 export default class Routes extends React.PureComponent {
   render() {
@@ -20,6 +21,7 @@ export default class Routes extends React.PureComponent {
           <Route path="/Table" component={Table} exact />
           <Route path="/About" component={About} exact />
           <Route path="/Dashboard" component={Dashboard} exact />
+          <Route path="/Settings" component={Settings} exact />
         </Switch>
       </Router>
     );

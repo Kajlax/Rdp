@@ -33,6 +33,10 @@ const dropdownItems = [
     Path: "/Dashboard"
   },
   {
+    Title: "Settings",
+    Path: "/Settings"
+  },
+  {
     Title: "About",
     Path: "/About"
   }

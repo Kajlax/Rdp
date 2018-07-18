@@ -12,10 +12,7 @@ const data = {
 
 class DashboardBarChart extends React.PureComponent {
   render() {
-    return <Bar
-    data={data} 
-    options={data.options}
-    />;
+    return <Bar data={data} options={data.options} />;
   }
 }
 
