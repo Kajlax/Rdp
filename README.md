@@ -2,9 +2,14 @@
 
 - Building a typical website structure with React.js
 - Routes
-- Different sections/components using external JSON-files to render content
-
+- Context
+- Search fields
+- Rendering content from external JSON-files in different sections
 
 ### Sections/components
 
-- Dashboard, gallery, links, staff, table etc.
+- Dashboard (Chart.js)
+- Image gallery
+- Links
+- Staff preview
+- Table for products etc.
