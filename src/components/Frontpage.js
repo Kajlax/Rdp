@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "./Layout";
-import { Header, List, Segment } from "semantic-ui-react";
+import { Header, Item } from "semantic-ui-react";
+import image from "../data/image.png";
 
 export default class Frontpage extends React.PureComponent {
   render() {
@@ -14,28 +15,36 @@ export default class Frontpage extends React.PureComponent {
         platform. The platform can be modified and expanded with different
         components. Data sources come from external JSON files that can be
         updated separately.
-        <Segment inverted compact color="purple">
-          <List divided inverted relaxed>
-            <List.Item>
-              <List.Content>
-                <List.Header>JSON</List.Header>
+        <Item.Group>
+          <Item>
+            <Item.Image size="tiny" src={image} />
+            <Item.Content>
+              <Item.Header as="a">JSON</Item.Header>
+              <Item.Meta>
                 All user data is stored in easy-to-update JSON-files
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Content>
-                <List.Header>jQuery Free</List.Header>
-                The platform doesn't use jQuery
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Content>
-                <List.Header>Component based</List.Header>
-                Easy to modify and implement components
-              </List.Content>
-            </List.Item>
-          </List>
-        </Segment>
+              </Item.Meta>
+              <Item.Extra>Read more</Item.Extra>
+            </Item.Content>
+          </Item>
+
+          <Item>
+            <Item.Image size="tiny" src={image} />
+            <Item.Content>
+              <Item.Header as="a">jQuery free</Item.Header>
+              <Item.Meta>The platform doesn't use jQuery</Item.Meta>
+              <Item.Extra>Read more</Item.Extra>
+            </Item.Content>
+          </Item>
+
+          <Item>
+            <Item.Image size="tiny" src={image} />
+            <Item.Content>
+              <Item.Header as="a">Component based</Item.Header>
+              <Item.Meta>Easy to modify and implement components</Item.Meta>
+              <Item.Extra>Read more</Item.Extra>
+            </Item.Content>
+          </Item>
+        </Item.Group>
       </Layout>
     );
   }
