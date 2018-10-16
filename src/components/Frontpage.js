@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "./Layout";
-import { Header, Item } from "semantic-ui-react";
+import { Header, Item, Label } from "semantic-ui-react";
 import image from "../data/images/image.png";
 
 export default class Frontpage extends React.PureComponent {
@@ -23,7 +23,9 @@ export default class Frontpage extends React.PureComponent {
               <Item.Meta>
                 All user data is stored in easy-to-update JSON-files
               </Item.Meta>
-              <Item.Extra>Read more</Item.Extra>
+              <Item.Extra>
+                <Label color="blue" content="Read more" />
+              </Item.Extra>
             </Item.Content>
           </Item>
 
@@ -32,7 +34,9 @@ export default class Frontpage extends React.PureComponent {
             <Item.Content>
               <Item.Header as="a">jQuery free</Item.Header>
               <Item.Meta>The platform doesn't use jQuery</Item.Meta>
-              <Item.Extra>Read more</Item.Extra>
+              <Item.Extra>
+                <Label color="blue" content="Read more" />
+              </Item.Extra>
             </Item.Content>
           </Item>
 
@@ -41,7 +45,9 @@ export default class Frontpage extends React.PureComponent {
             <Item.Content>
               <Item.Header as="a">Component based</Item.Header>
               <Item.Meta>Easy to modify and implement components</Item.Meta>
-              <Item.Extra>Read more</Item.Extra>
+              <Item.Extra>
+                <Label color="blue" content="Read more" />
+              </Item.Extra>
             </Item.Content>
           </Item>
         </Item.Group>
