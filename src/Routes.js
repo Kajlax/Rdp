@@ -9,21 +9,86 @@ import About from "./components/About";
 import Dashboard from "./components/Dashboard";
 import Settings from "./components/Settings";
 
-export default class Routes extends React.PureComponent {
+export const routes = [
+  {
+    Title: "Home",
+    Path: "/",
+    component: Frontpage,
+    showInNavItems: true,
+    showInNavDropdown: false
+  },
+  {
+    Title: "Gallery",
+    Path: "/gallery",
+    component: Gallery,
+    showInNavItems: true,
+    showInNavDropdown: false
+  },
+  {
+    Title: "Links",
+    Path: "/links",
+    component: Links,
+    showInNavItems: true,
+    showInNavDropdown: false
+  },
+  {
+    Title: "Staff",
+    Path: "/staff",
+    component: Staff,
+    showInNavItems: true,
+    showInNavDropdown: false
+  },
+  {
+    Title: "Table",
+    Path: "/table",
+    component: Table,
+    showInNavItems: true,
+    showInNavDropdown: false
+  },
+  {
+    Title: "About",
+    Path: "/about",
+    component: About,
+    showInNavItems: false,
+    showInNavDropdown: true
+  },
+  {
+    Title: "Dashboard",
+    Path: "/dashboard",
+    component: Dashboard,
+    showInNavItems: false,
+    showInNavDropdown: true
+  },
+  {
+    Title: "Settings",
+    Path: "/settings",
+    component: Settings,
+    showInNavItems: false,
+    showInNavDropdown: true
+  }
+];
+
+class Routes extends React.PureComponent {
+  renderRoutes = () => {
+    return routes.map(route => {
+      return (
+        <Route
+          key={route.Path}
+          path={route.Path}
+          component={route.component}
+          exact
+        />
+      );
+    });
+  };
+
   render() {
     return (
       <Router>
-        <Switch>
-          <Route path="/" component={Frontpage} exact />
-          <Route path="/Gallery" component={Gallery} exact />
-          <Route path="/Links" component={Links} exact />
-          <Route path="/Staff" component={Staff} exact />
-          <Route path="/Table" component={Table} exact />
-          <Route path="/About" component={About} exact />
-          <Route path="/Dashboard" component={Dashboard} exact />
-          <Route path="/Settings" component={Settings} exact />
-        </Switch>
+        <Switch>{this.renderRoutes()}</Switch>
       </Router>
     );
   }
 }
+
+export default Routes;
