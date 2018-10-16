@@ -13,3 +13,4 @@
 - Links
 - Staff preview
 - Table for products etc.
+- Settings (Language localisation not yet done)
