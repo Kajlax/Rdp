@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./Layout";
 import { Header, Item } from "semantic-ui-react";
-import image from "../data/image.png";
+import image from "../data/images/image.png";
 
 export default class Frontpage extends React.PureComponent {
   render() {
